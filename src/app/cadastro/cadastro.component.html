@@ -1,0 +1,7 @@
+<p>Cadastre um novo Colaborador!</p>
+<form [formGroup]="cadastroForm" (ngSubmit)="salvar()">
+    Nome: <input formControlName="nome" name="nome" />
+    Senha: <input formControlName="senha" name="senha" type="password"/>
+    <button type="submit">Salvar</button>
+</form>
+
