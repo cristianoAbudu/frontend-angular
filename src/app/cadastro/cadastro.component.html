@@ -1,7 +1,45 @@
-<p>Cadastre um novo Colaborador!</p>
-<form [formGroup]="cadastroForm" (ngSubmit)="salvar()">
-    Nome: <input formControlName="nome" name="nome" />
-    Senha: <input formControlName="senha" name="senha" type="password"/>
-    <button type="submit">Salvar</button>
-</form>
-
+ <div>
+    <h1>Cadastre um novo Colaborador!</h1>
+    <form [formGroup]="cadastroForm" (ngSubmit)="salvar()">
+        Nome: <input formControlName="nome" name="nome" />
+        Senha: <input formControlName="senha" name="senha" type="password"/>
+        <button type="submit">Salvar</button>
+    </form>
+</div>
+<div>
+    <h1>Colaboradores Cadastrados:</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>#ID</th>
+          <th>Nome</th>
+          <th>Score</th>
+          <th>Chefe</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of colaboradorList">
+          <th>{{ item.id }}</th>
+          <td>{{ item.nome }}</td>
+          <td>{{ item.score }}</td>
+          <td>{{ item.chefe?.nome }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div>
+    <h1>Associa Chefe:</h1>
+    <form  [formGroup]="associaChefeForm" (ngSubmit)="associaChefe()">
+        Chefe: <select formControlName="chefe" name="chefe"> 
+            <option *ngFor="let item of colaboradorList" value="{{ item.id }}">
+                {{ item.nome }}
+            </option>
+        </select>
+        Subordinado:  <select formControlName="subordinado" name="subordinado" > 
+            <option *ngFor="let item of colaboradorList" value="{{ item.id }}">
+                {{ item.nome }}
+            </option>
+        </select>
+        <button type="submit">Salvar</button>
+    </form>
+  </div>
