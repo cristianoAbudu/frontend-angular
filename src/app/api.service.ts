@@ -11,7 +11,7 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   getPosts(): Observable<any[]> {
-    let apiUrl = 'http://localhost:8082';
+    let apiUrl = 'http://3.140.90.70:8082';
 
     return this.http.get<any[]>(`${apiUrl}`);
   }
@@ -24,7 +24,7 @@ export class ApiService {
 
     console.log(body);
 
-    let apiUrl = 'http://localhost:8084';
+    let apiUrl = 'http://3.143.118.52:8084';
 
     return this.http.post<any>(
         `${apiUrl}`, 
@@ -33,7 +33,7 @@ export class ApiService {
   }
 
   associaChefePost(chefe: any, subordinado: any): Observable<any> {
-    let apiUrl = 'http://localhost:8081';
+    let apiUrl = 'http://3.134.44.106:8081';
 
     var body = {
         "idChefe": chefe, 
