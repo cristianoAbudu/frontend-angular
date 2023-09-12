@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import * as moment from "moment";
 
+// https://blog.angular-university.io/angular-jwt-authentication/
 
 @Injectable()
 export class AuthService {
